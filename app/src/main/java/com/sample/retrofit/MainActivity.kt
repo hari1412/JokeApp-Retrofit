@@ -1,16 +1,14 @@
-package com.remote.retrofit
+package com.sample.retrofit
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.remote.retrofit.adapters.ListAdapter
-import com.remote.retrofit.api.JokesApi
-import com.remote.retrofit.api.RetrofitHelper
-import com.remote.retrofit.model.JokesList
+import com.sample.retrofit.adapters.ListAdapter
+import com.sample.retrofit.api.JokesApi
+import com.sample.retrofit.api.RetrofitHelper
+import com.sample.retrofit.model.JokesList
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     private var mApiService: JokesApi? = null
 
     private var mAdapter: ListAdapter?= null;
-    private var mQuestions: MutableList<com.remote.retrofit.model.Result> = ArrayList()
+    private var mQuestions: MutableList<com.sample.retrofit.model.Result> = ArrayList()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,16 +31,16 @@ class MainActivity : AppCompatActivity() {
 
         mAdapter = ListAdapter(this, mQuestions, R.layout.question_item)
         listRecyclerView!!.adapter = mAdapter
-        fetchQuetionList()
+        fetchJokesList()
     }
 
-    private fun fetchQuetionList() {
-        val call = mApiService!!.fetchQuestions("10");
+    private fun fetchJokesList() {
+        val call = mApiService!!.fetchJockes("15");
         call.enqueue(object : Callback<JokesList> {
 
             override fun onResponse(call: Call<JokesList>, response: Response<JokesList>) {
 
-                Log.d(TAG, "Total Questions: " + response.body()!!.jokes!!.size)
+                Log.d(TAG, "Total JokesList: " + response.body()!!.jokes!!.size)
                 val questions = response.body()
                 if (questions != null) {
                     mQuestions.addAll(questions.jokes!!)

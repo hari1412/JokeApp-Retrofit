@@ -1,4 +1,4 @@
-package com.remote.retrofit
+package com.sample.retrofit
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

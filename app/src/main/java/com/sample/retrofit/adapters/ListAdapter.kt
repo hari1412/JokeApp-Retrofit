@@ -1,4 +1,4 @@
-package com.remote.retrofit.adapters
+package com.sample.retrofit.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -7,12 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.remote.retrofit.R
 import kotlinx.android.synthetic.main.question_item.view.*
 
 class ListAdapter(
     private val context: Context,
-    private val mQuestions: List<com.remote.retrofit.model.Result>,
+    private val mQuestions: List<com.sample.retrofit.model.Result>,
     private val mRowLayout: Int
 ) : RecyclerView.Adapter<ListAdapter.QuestionViewHolder>() {
     class QuestionViewHolder(val containerView: View) : RecyclerView.ViewHolder(containerView) {

@@ -1,4 +1,4 @@
-package com.remote.retrofit
+package com.sample.retrofit
 
 import org.junit.Test
 

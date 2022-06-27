@@ -1,4 +1,4 @@
-package com.remote.retrofit.model
+package com.sample.retrofit.model
 
 data class Result(
     val _id: Int,
